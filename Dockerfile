@@ -1,10 +1,11 @@
 FROM node:16-alpine
 
-WORKDIR /bookapp-react-js
-COPY . /bookapp-react-js
-RUN npm run build
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+copy ..
 EXPOSE 80
-CMD ["npm", "start"]
+CMD ["npm","run","start"]
 
 
 
