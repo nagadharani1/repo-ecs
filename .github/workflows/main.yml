@@ -32,8 +32,8 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: nginx-repo
-        IMAGE_TAG:  docker tag ngnix-repo:latest 153046341652.dkr.ecr.us-west-1.amazonaws.com/ngnix-repo:latest
+        ECR_REPOSITORY: ngnix-repo
+        IMAGE_TAG: latest
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
